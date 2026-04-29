@@ -1,0 +1,618 @@
+:root {
+    --primary: #d4a395; /* Dusty Rose */
+    --accent: #8e9775;  /* Olive Green */
+    --bg-light: #fdf6f3;
+    --text-dark: #4a4a4a;
+    --text-light: #ffffff;
+    --serif-font: 'Playfair Display', serif;
+    --sans-font: 'Montserrat', sans-serif;
+    --script-font: 'Great Vibes', cursive;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    font-family: var(--sans-font);
+    overflow: hidden; /* Snap scroll handles overflow */
+}
+
+.scroll-container {
+    height: 100vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+.snap-section {
+    min-height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 60px 20px;
+    margin-bottom: 30px; /* Small gap between blocks */
+}
+
+.snap-section.hero {
+    height: 100vh;
+}
+
+/* Section 1: Hero */
+.hero {
+    background-image: url('hero_peony_background_1777479608708.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(212, 163, 149, 0.3), rgba(0, 0, 0, 0.1));
+}
+
+.hero .content {
+    position: relative;
+    z-index: 2;
+    color: var(--text-light);
+}
+
+.main-title {
+    font-family: var(--script-font);
+    font-size: 4rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.main-title span {
+    display: block;
+    font-family: var(--serif-font);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-top: -10px;
+}
+
+.date {
+    font-family: var(--serif-font);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+.scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+}
+
+.scroll-hint .line {
+    width: 1px;
+    height: 50px;
+    background-color: var(--text-light);
+    margin: 0 auto 10px;
+}
+
+.scroll-hint p {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
+    40% {transform: translateX(-50%) translateY(-10px);}
+    60% {transform: translateX(-50%) translateY(-5px);}
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    max-width: 400px;
+    width: 100%;
+}
+
+.section-title {
+    font-family: var(--serif-font);
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    color: var(--primary);
+}
+
+.ornament-divider {
+    height: 100px;
+    width: 100%;
+    background-image: url('simple_kazakh_ornament_birds.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 20px 0;
+}
+
+.ornament-divider-v2 {
+    height: 100px;
+    width: 100%;
+    background-image: url('аким-removebg-preview.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* Filter to change pink to Dusty Rose (#d4a395) */
+    filter: invert(82%) sepia(21%) saturate(543%) hue-rotate(323deg) brightness(89%) contrast(85%);
+    margin: 20px 0;
+}
+
+/* Section 2: Intro */
+.music-control {
+    margin-bottom: 30px;
+}
+
+.music-icon {
+    width: 60px;
+    height: 60px;
+    border: 1px solid var(--text-dark);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 15px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.music-icon:hover {
+    transform: scale(1.1);
+}
+
+.music-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.invitation-text {
+    line-height: 1.8;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+}
+
+.invitation-text strong {
+    font-family: var(--serif-font);
+    font-size: 1.8rem;
+    color: var(--primary);
+}
+
+.big-date, .big-date-top {
+    font-family: var(--serif-font);
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--primary);
+}
+
+/* Section 3: Schedule */
+.timing {
+    margin: 2rem 0;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.calendar-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.month-name {
+    font-family: var(--serif-font);
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    font-size: 0.8rem;
+}
+
+.calendar-grid span {
+    padding: 5px;
+}
+
+.calendar-grid .weekend {
+    color: var(--primary);
+}
+
+.calendar-grid .highlight {
+    background-color: var(--primary);
+    color: white;
+    border-radius: 50%;
+}
+
+/* Section 4: Location */
+.script-title {
+    font-family: var(--script-font);
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.address-details {
+    line-height: 2;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+}
+
+.map-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 600;
+    border-bottom: 1px solid var(--primary);
+    padding-bottom: 5px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.map-button img {
+    width: 30px;
+}
+
+/* Section 5: RSVP */
+#rsvp-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background: transparent;
+    padding: 10px;
+    font-family: inherit;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: var(--primary);
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+    margin: 10px 0;
+}
+
+.radio-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    user-select: none;
+}
+
+.radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+}
+
+.radio-container:hover input ~ .checkmark {
+    border-color: var(--primary);
+}
+
+.radio-container input:checked ~ .checkmark {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.radio-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.radio-container .checkmark:after {
+    top: 6px;
+    left: 6px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: white;
+}
+
+.submit-btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: inherit;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.submit-btn:hover {
+    opacity: 0.9;
+}
+
+/* Section 6: Countdown */
+.countdown {
+    background-color: var(--bg-light);
+    min-height: auto;
+    padding: 80px 20px;
+}
+
+.countdown-card {
+    background-color: var(--accent);
+    color: white;
+    padding: 20px 15px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 350px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.countdown-card h3 {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.timer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.time-unit {
+    display: flex;
+    flex-direction: column;
+    min-width: 60px;
+}
+
+.time-unit span {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.time-unit label {
+    font-size: 0.6rem;
+    margin-top: 5px;
+    opacity: 0.8;
+}
+
+.time-divider {
+    width: 1px;
+    height: 30px;
+    background-color: rgba(255,255,255,0.2);
+}
+
+/* Section 7: Closing Intro */
+.closing-intro {
+    background-color: white;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.closing-intro .content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    background-color: white;
+    width: 100%;
+}
+
+.footer-note.top-note .respect {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.footer-note.top-note .parents {
+    font-family: var(--script-font);
+    font-size: 2.8rem;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.guest-invite {
+    font-family: var(--serif-font);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: var(--primary);
+}
+
+.green-ornament {
+    width: 220px;
+    height: 220px;
+    background-image: url('simple_kazakh_ornament_birds.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 10px;
+    opacity: 1;
+    background-color: transparent;
+}
+
+.bottom-pink-reveal {
+    min-height: 400px; /* Make it larger to show the picture */
+    width: 100%;
+    background-color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.bottom-pink-reveal::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('hero_peony_background_1777479608708.png');
+    background-size: cover;
+    background-position: center top;
+    opacity: 0.8;
+}
+
+.script-closing {
+    font-family: var(--script-font);
+    font-size: 2.5rem;
+    color: white;
+    line-height: 1.2;
+    z-index: 2;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Section 8: Final Footer */
+.final-footer {
+    background-color: var(--primary);
+    position: relative;
+    padding: 0;
+}
+
+.final-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('hero_peony_background_1777479608708.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4;
+}
+
+.final-footer .content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background: rgba(212, 163, 149, 0.2);
+}
+
+.final-birds {
+    width: 200px;
+    height: 200px;
+    background-image: url('simple_kazakh_ornament_birds.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 20px;
+    opacity: 0.9;
+}
+
+/* Particles / Petals Effect */
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.petal {
+    position: absolute;
+    background-color: var(--primary);
+    border-radius: 150% 0 150% 0;
+    opacity: 0.3;
+    pointer-events: none;
+    animation: float 10s infinite linear;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(-10vh) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% { opacity: 0.3; }
+    90% { opacity: 0.3; }
+    100% {
+        transform: translateY(110vh) translateX(100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Animations Refined */
+.content-wrapper, .bottom-pink-reveal, .final-footer .content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.snap-section.active .content-wrapper,
+.snap-section.active .bottom-pink-reveal,
+.snap-section.active .content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Fixes */
+@media (max-height: 750px) {
+    .main-title { font-size: 3rem; }
+    .invitation-text { font-size: 0.9rem; }
+    .invitation-text strong { font-size: 1.4rem; }
+    .calendar-container { padding: 10px; }
+    .calendar-grid { gap: 5px; }
+    .script-title { font-size: 1.8rem; }
+    .footer-note.top-note .parents { font-size: 2.2rem; }
+    .script-closing { font-size: 2rem; }
+    .final-birds { width: 150px; height: 150px; }
+    .countdown-card { padding: 15px; }
+    .timer span { font-size: 1.1rem; }
+}

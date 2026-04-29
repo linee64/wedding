@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danelya - Kyz Uzatu Invitation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="particles-container"></div>
+    <div class="scroll-container">
+        <!-- Section 1: Hero -->
+        <section class="snap-section hero">
+            <div class="overlay"></div>
+            <div class="content">
+                <h1 class="main-title">Danelya<br><span>Qyz uzatu</span></h1>
+                <p class="date">11.07.2026</p>
+                <div class="scroll-hint">
+                    <div class="line"></div>
+                    <p>ЖОҒАРЫ КӨТЕРІҢІЗ</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Music & Intro -->
+        <section class="snap-section intro">
+            <div class="content-wrapper">
+                <div class="music-control">
+                    <div class="music-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M9 18V5l12-2v13"></path>
+                            <circle cx="6" cy="18" r="3"></circle>
+                            <circle cx="18" cy="16" r="3"></circle>
+                        </svg>
+                    </div>
+                    <p>МУЗЫКАНЫ ҚОСУ ҮШІН<br>БАТЫРМАНЫ БАСЫҢЫЗ</p>
+                </div>
+                
+                <div class="ornament-divider"></div>
+                
+                <h2 class="section-title">ҚҰРМЕТТІ ҚОНАҚТАР!</h2>
+                <p class="invitation-text">
+                    СІЗДЕРДІ ҚЫЗЫМЫЗ<br>
+                    <strong>ДАНЕЛЯНЫҢ</strong><br>
+                    ҰЗАТУ ТОЙЫНА АРНАЛҒАН<br>
+                    АҚ ДАСТАРХАНЫМЫЗДЫҢ<br>
+                    ҚАДІРЛІ ҚОНАҒЫ БОЛУҒА ШАҚЫРАМЫЗ!
+                </p>
+                <p class="big-date">11.07.2026 ж.</p>
+            </div>
+        </section>
+
+        <!-- Section 3: Schedule & Calendar -->
+        <section class="snap-section schedule">
+            <div class="content-wrapper">
+                <div class="ornament-divider-v2" style="margin-bottom: 40px;"></div>
+                <div class="timing">
+                    <p>Қонақтардың жиналуы 17:00-де</p>
+                    <p>Тойдың басталуы 18:00-де</p>
+                </div>
+                
+                <div class="calendar-container">
+                    <h3 class="month-name">Шілде</h3>
+                    <div class="calendar-grid">
+                        <span>Дс</span><span>Сс</span><span>Ср</span><span>Бс</span><span>Жм</span><span class="weekend">Сб</span><span class="weekend">Жб</span>
+                        <span class="empty"></span><span class="empty"></span><span>1</span><span>2</span><span>3</span><span class="weekend">4</span><span class="weekend">5</span>
+                        <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span class="highlight weekend">11</span><span class="weekend">12</span>
+                        <span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span class="weekend">18</span><span class="weekend">19</span>
+                        <span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span class="weekend">25</span><span class="weekend">26</span>
+                        <span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Location -->
+        <section class="snap-section location">
+            <div class="content-wrapper">
+                <h2 class="script-title">Мекен-Жайымыз</h2>
+                <div class="address-details">
+                    <p>АЛМАТЫ ҚАЛАСЫ,</p>
+                    <p>ГОГОЛЬ КӨШЕСІ, 1</p>
+                    <p>«GORKY PARK RESIDENCE»</p>
+                    <p>ТОЙХАНАСЫ</p>
+                </div>
+                
+                <a href="https://maps.google.com" target="_blank" class="map-button">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Google_Maps_icon_%282015-2020%29.svg" alt="Map">
+                    <span>КАРТАНЫ КӨРСЕТУ</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Section 5: RSVP Form -->
+        <section class="snap-section rsvp">
+            <div class="content-wrapper">
+                <h2 class="script-title">Тойға Қатысуыңыз</h2>
+                <p class="form-hint">АТЫ-ЖӨНІҢІЗ (ЖҰБАЙЫҢЫЗБЕН КЕЛЕТІН БОЛСАҢЫЗ, ЕКЕУІҢІЗДІҢ ДЕ АТЫҢЫЗДЫ ЖАЗУЫҢЫЗДЫ ӨТІНЕМІЗ)</p>
+                
+                <form id="rsvp-form">
+                    <input type="text" placeholder="АТЫ-ЖӨНІҢІЗ" required>
+                    <div class="radio-group">
+                        <label class="radio-container">
+                            <input type="radio" name="attendance" value="yes" checked>
+                            <span class="checkmark"></span>
+                            ҚАТЫСАМЫН
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="attendance" value="no">
+                            <span class="checkmark"></span>
+                            ӨКІНІШКЕ ОРАЙ, КЕЛЕ АЛМАЙМЫН
+                        </label>
+                    </div>
+                    <button type="submit" class="submit-btn">ЖІБЕРУ</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Section 6: Countdown -->
+        <section class="snap-section countdown">
+            <div class="content-wrapper">
+                <div class="countdown-card">
+                    <h3>ТОЙ САЛТАНАТЫНА ДЕЙІН</h3>
+                    <div class="timer">
+                        <div class="time-unit">
+                            <span id="days">00</span>
+                            <label>КҮН</label>
+                        </div>
+                        <div class="time-divider"></div>
+                        <div class="time-unit">
+                            <span id="hours">00</span>
+                            <label>САҒАТ</label>
+                        </div>
+                        <div class="time-divider"></div>
+                        <div class="time-unit">
+                            <span id="minutes">00</span>
+                            <label>МИНУТТАР</label>
+                        </div>
+                        <div class="time-divider"></div>
+                        <div class="time-unit">
+                            <span id="seconds">00</span>
+                            <label>СЕКУНДТАР</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+                
+        <!-- Section 7: Invitation Closing -->
+        <section class="snap-section closing-intro">
+            <div class="content-wrapper">
+                <div class="footer-note top-note">
+                    <p class="respect">АСА ҚҰРМЕТПЕН,</p>
+                    <p class="parents">Айдар-Айжан</p>
+                    <p class="guest-invite">ҚАДІРЛІ ҚОНАҒЫ БОЛЫҢЫЗДАР!</p>
+                </div>
+                
+                <div class="green-ornament"></div>
+            </div>
+            <div class="bottom-pink-reveal">
+                <p class="script-closing">Qadirli qonagy<br>bolynizdar!</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Hidden audio for background music -->
+    <audio id="bg-music" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
