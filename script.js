@@ -49,10 +49,12 @@ let isPlaying = false;
 musicIcon.addEventListener('click', () => {
     if (isPlaying) {
         audio.pause();
+        musicIcon.classList.remove('playing');
         musicIcon.style.transform = 'scale(1)';
         musicIcon.style.borderColor = '#4a4a4a';
     } else {
         audio.play().catch(e => console.log("Audio play failed:", e));
+        musicIcon.classList.add('playing');
         musicIcon.style.transform = 'scale(1.1)';
         musicIcon.style.borderColor = '#d4a395';
     }
@@ -70,25 +72,37 @@ rsvpForm.addEventListener('submit', (e) => {
     rsvpForm.reset();
 });
 
-// Petals Effect Logic
-function createPetals() {
+// Effects Logic
+function createParticles() {
     const container = document.querySelector('.particles-container');
-    const petalCount = 15;
-
-    for (let i = 0; i < petalCount; i++) {
+    
+    // Petals
+    for (let i = 0; i < 30; i++) {
         const petal = document.createElement('div');
         petal.className = 'petal';
-        
-        // Randomize size, position, and delay
-        const size = Math.random() * 15 + 10 + 'px';
+        const size = Math.random() * 15 + 8 + 'px';
         petal.style.width = size;
         petal.style.height = size;
         petal.style.left = Math.random() * 100 + 'vw';
-        petal.style.animationDelay = Math.random() * 10 + 's';
-        petal.style.animationDuration = Math.random() * 5 + 10 + 's';
-        
+        petal.style.opacity = Math.random() * 0.3 + 0.1;
+        petal.style.animationDelay = Math.random() * 15 + 's';
+        petal.style.animationDuration = Math.random() * 8 + 12 + 's';
+        petal.style.transform = `rotate(${Math.random() * 360}deg)`;
         container.appendChild(petal);
+    }
+
+    // Sparkles (Gold Dust)
+    for (let i = 0; i < 40; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        const size = Math.random() * 3 + 1 + 'px';
+        sparkle.style.width = size;
+        sparkle.style.height = size;
+        sparkle.style.left = Math.random() * 100 + 'vw';
+        sparkle.style.top = Math.random() * 100 + 'vh';
+        sparkle.style.animationDelay = Math.random() * 10 + 's';
+        container.appendChild(sparkle);
     }
 }
 
-createPetals();
+createParticles();

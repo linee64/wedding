@@ -26,6 +26,21 @@ body {
     height: 100vh;
     overflow-y: auto;
     scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) transparent;
+}
+
+.scroll-container::-webkit-scrollbar {
+    width: 4px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 10px;
 }
 
 .snap-section {
@@ -37,8 +52,34 @@ body {
     align-items: center;
     text-align: center;
     position: relative;
-    padding: 60px 20px;
-    margin-bottom: 30px; /* Small gap between blocks */
+    padding: 80px 20px;
+    margin-bottom: 30px;
+    overflow: hidden; /* For corner decorations */
+}
+
+/* Soft Gradient & Texture for Light Sections */
+.snap-section:not(.hero):not(.closing-intro) {
+    background: radial-gradient(circle at center, #ffffff 0%, var(--bg-light) 100%);
+    position: relative;
+}
+
+.snap-section:not(.hero):not(.closing-intro)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('hero_peony_background_1777479608708.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.04; /* Extremely subtle floral texture */
+    pointer-events: none;
+    z-index: 0;
+}
+
+.snap-section::after {
+    display: none; /* Remove second ornament */
 }
 
 .snap-section.hero {
@@ -120,6 +161,8 @@ body {
 .content-wrapper {
     max-width: 400px;
     width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 .section-title {
@@ -128,6 +171,17 @@ body {
     letter-spacing: 2px;
     margin-bottom: 2rem;
     color: var(--primary);
+    position: relative;
+}
+
+.section-title::after, .script-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    margin: 15px auto 0;
+    opacity: 0.6;
 }
 
 .ornament-divider {
@@ -179,6 +233,35 @@ body {
     height: 24px;
 }
 
+.waveform {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 15px;
+    margin-left: 5px;
+}
+
+.waveform span {
+    width: 2px;
+    height: 100%;
+    background-color: var(--primary);
+    border-radius: 1px;
+    animation: wave 1s ease-in-out infinite;
+    display: none; /* Hidden by default */
+}
+
+.playing .waveform span {
+    display: block;
+}
+
+.waveform span:nth-child(2) { animation-delay: 0.2s; }
+.waveform span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes wave {
+    0%, 100% { height: 5px; }
+    50% { height: 15px; }
+}
+
 .invitation-text {
     line-height: 1.8;
     letter-spacing: 1px;
@@ -206,10 +289,13 @@ body {
 }
 
 .calendar-container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.03);
 }
 
 .month-name {
@@ -255,9 +341,10 @@ body {
 
 .map-button {
     display: flex;
+    flex-direction: column; /* Stack icon and text */
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
     text-decoration: none;
     color: var(--primary);
     font-weight: 600;
@@ -267,8 +354,10 @@ body {
     margin: 0 auto;
 }
 
-.map-button img {
-    width: 30px;
+.map-icon {
+    height: 1.8rem;
+    width: auto;
+    fill: var(--primary);
 }
 
 /* Section 5: RSVP */
@@ -380,14 +469,17 @@ input[type="text"]:focus {
 }
 
 .countdown-card {
-    background-color: var(--accent);
+    background-color: rgba(142, 151, 117, 0.85); /* Semi-transparent accent */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     color: white;
-    padding: 20px 15px;
-    border-radius: 15px;
+    padding: 30px 20px;
+    border-radius: 20px;
     width: 90%;
     max-width: 350px;
     margin: 0 auto;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
 
 .countdown-card h3 {
@@ -591,15 +683,15 @@ input[type="text"]:focus {
 /* Animations Refined */
 .content-wrapper, .bottom-pink-reveal, .final-footer .content {
     opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(30px) scale(0.98);
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .snap-section.active .content-wrapper,
 .snap-section.active .bottom-pink-reveal,
 .snap-section.active .content {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 
 /* Responsive Fixes */
